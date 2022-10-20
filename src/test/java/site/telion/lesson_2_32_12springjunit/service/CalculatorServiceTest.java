@@ -6,10 +6,10 @@ import site.telion.lesson_2_32_12springjunit.exception.DivideByNullException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorServiceTest {
+    private final CalculatorService service = new CalculatorServiceImpl();
 
     @Test
     public void when5plus5equals10_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = 5.0;
         Double b = 5.0;
 
@@ -21,7 +21,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void whenNegative5plusNegative5equalsNegative10_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = -5.0;
         Double b = -5.0;
 
@@ -33,7 +32,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void when5minus5equals0_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = 5.0;
         Double b = 5.0;
 
@@ -45,7 +43,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void whenNegative5minusNegative5equals0_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = -5.0;
         Double b = -5.0;
 
@@ -57,7 +54,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void when5multiply5equals25_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = 5.0;
         Double b = 5.0;
 
@@ -69,7 +65,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void when0multiply5equals0_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = 0.0;
         Double b = 5.0;
 
@@ -81,7 +76,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void when5divide5equals1_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = 5.0;
         Double b = 5.0;
 
@@ -93,7 +87,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void when0divide5equals0_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = 0.0;
         Double b = 5.0;
 
@@ -105,7 +98,6 @@ public class CalculatorServiceTest {
 
     @Test
     public void when5divide0throwException_thenSucceeds() {
-        CalculatorService service = new CalculatorServiceImpl();
         Double a = 5.0;
         Double b = 0.0;
 
