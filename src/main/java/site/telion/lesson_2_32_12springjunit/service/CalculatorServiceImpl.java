@@ -1,6 +1,7 @@
 package site.telion.lesson_2_32_12springjunit.service;
 
 import org.springframework.stereotype.Service;
+import site.telion.lesson_2_32_12springjunit.exception.DivideByNullException;
 
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
@@ -27,7 +28,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     public String printSolutionDivide(Double a, Double b) {
         checkNum(a, b);
         if (b == 0) {
-            return "делить на 0 нельзя";
+            throw new DivideByNullException("Деление на ноль");
         }
         return a + " / " + b + " = " + (a / b * 1.0);
     }
