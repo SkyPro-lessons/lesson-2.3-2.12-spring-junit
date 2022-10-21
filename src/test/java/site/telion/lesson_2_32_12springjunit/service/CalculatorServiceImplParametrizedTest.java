@@ -7,65 +7,49 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static site.telion.lesson_2_32_12springjunit.service.CalculatorServiceImplTestConstants.*;
 
 class CalculatorServiceImplParametrizedTest {
 
     private final CalculatorService service = new CalculatorServiceImpl();
 
-    public static Stream<Arguments> provideParamsForPlusTests() {
+    public static Stream<Arguments> provideParamsForTests() {
         return Stream.of(
-                Arguments.of("5.0 + 5.0 = 10.0", 5.0, 5.0),
-                Arguments.of("-5.0 + -5.0 = -10.0", -5.0, -5.0)
-        );
-    }
-
-    public static Stream<Arguments> provideParamsForMinusTests() {
-        return Stream.of(
-                Arguments.of("5.0 - 5.0 = 0.0", 5.0, 5.0),
-                Arguments.of("-5.0 - -5.0 = 0.0", -5.0, -5.0)
-        );
-    }
-
-    public static Stream<Arguments> provideParamsForMultiplyTests() {
-        return Stream.of(
-                Arguments.of("5.0 * 5.0 = 25.0", 5.0, 5.0),
-                Arguments.of("0.0 * 5.0 = 0.0", 0.0, 5.0)
-        );
-    }
-
-    public static Stream<Arguments> provideParamsForDivideTests() {
-        return Stream.of(
-                Arguments.of("5.0 / 5.0 = 1.0", 5.0, 5.0),
-                Arguments.of("0.0 / 5.0 = 0.0", 0.0, 5.0)
+                Arguments.of(FIVE, FIVE),
+                Arguments.of(NEGATIVE_FIVE, NEGATIVE_FIVE)
         );
     }
 
     @ParameterizedTest
-    @MethodSource("provideParamsForPlusTests")
-    public void shouldCorrectPlusNumbers(String actual, Double a, Double b) {
+    @MethodSource("provideParamsForTests")
+    public void shouldCorrectPlusNumbers(Double a, Double b) {
         String expected = service.printSolutionPlus(a, b);
-        assertEquals(expected, actual);
+        String actual = a + " + " + b + " = " + (a + b);
+        assertEquals(actual, expected);
     }
 
     @ParameterizedTest
-    @MethodSource("provideParamsForMinusTests")
-    public void shouldCorrectMinusNumbers(String actual, Double a, Double b) {
+    @MethodSource("provideParamsForTests")
+    public void shouldCorrectMinusNumbers(Double a, Double b) {
         String expected = service.printSolutionMinus(a, b);
-        assertEquals(expected, actual);
+        String actual = a + " - " + b + " = " + (a - b);
+        assertEquals(actual, expected);
     }
 
     @ParameterizedTest
-    @MethodSource("provideParamsForMultiplyTests")
-    public void shouldCorrectMultiplyNumbers(String actual, Double a, Double b) {
+    @MethodSource("provideParamsForTests")
+    public void shouldCorrectMultiplyNumbers(Double a, Double b) {
         String expected = service.printSolutionMultiply(a, b);
-        assertEquals(expected, actual);
+        String actual = a + " * " + b + " = " + (a * b);
+        assertEquals(actual, expected);
     }
 
     @ParameterizedTest
-    @MethodSource("provideParamsForDivideTests")
-    public void shouldCorrectDivideNumbers(String actual, Double a, Double b) {
+    @MethodSource("provideParamsForTests")
+    public void shouldCorrectDivideNumbers(Double a, Double b) {
         String expected = service.printSolutionDivide(a, b);
-        assertEquals(expected, actual);
+        String actual = a + " / " + b + " = " + (a / b);
+        assertEquals(actual, expected);
     }
 
 
