@@ -5,7 +5,7 @@ import site.telion.lesson_2_32_12springjunit.exception.DivideByNullException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CalculatorServiceTest {
+public class CalculatorServiceImplTest {
     private final CalculatorService service = new CalculatorServiceImpl();
 
     @Test
